@@ -77,7 +77,9 @@ func main() {
 		d = moverenx(m)
 
 		if d != false {
-			fmt.Print("o")
+
+			fmt.Printf("%c", i)
+
 			if i == 9 { //mover este
 				for i := 0; i < len(consolapox)-1; i++ {
 
