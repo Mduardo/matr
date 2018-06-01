@@ -6,59 +6,13 @@ import (
 	"time"
 )
 
-var consolapox [11]int //mover este
-
-func posDisponiblesx(posx int) bool {
-	p := posx
-
-	if posx != 0 {
-		posx = posx - 1
-
-		if consolapox[posx] == 0 {
-			consolapox[posx] = p
-			return true
-		} else {
-			return false
-		}
-	} else {
-		if consolapox[posx] == 0 {
-			consolapox[posx] = p
-			return true
-		} else {
-			return false
-		}
-	}
-
-}
-
-func moverenx(numeroaleatorio int) bool {
-	disponibilidad := posDisponiblesx(numeroaleatorio)
-
-	if disponibilidad != false {
-		for i := 0; i < numeroaleatorio; i++ {
-
-			//if i == numeroaleatorio-1 {
-			//	fmt.Print(numeroaleatorio)
-			//} else {
-			fmt.Print(" ")
-			//}
-		}
-		return true
-	} else {
-		return false
-	}
-
-}
-
-//creamos la semilla aleatoria para rand con el tiempo en decenas
 func aleatoriosemmill() int {
 	start := time.Now()
 	r := start.Nanosecond() / 10000000
 	return r
 }
 
-//funcion para generar numero aleatorio
-func numeroaletorio(maximo int) int {
+func GenAleatorio(maximo int) int {
 	for i := 0; i < 9; i++ {
 		//esperamos 8 nanosegundos
 		time.Sleep(1000 * time.Nanosecond)
@@ -69,26 +23,66 @@ func numeroaletorio(maximo int) int {
 	l := rand.Intn(maximo)
 	return l
 }
+
+/*func llamada(llam int) int {
+	r := GenAleatorio(llam)
+	return r
+}*/
+
 func main() {
-	var m int
-	var d bool
-	for i := 0; i < 10; i++ { //mover este
-		m = numeroaletorio(10) //mover este
-		d = moverenx(m)
+	a, b, c, d, e, f, g, h, p := 0, 0, 0, 0, 0, 0, 0, 0, 0
 
-		if d != false {
+	for i := 0; i < 20; i++ {
 
-			fmt.Printf("%c", i)
-
-			if i == 9 { //mover este
-				for i := 0; i < len(consolapox)-1; i++ {
-
-					consolapox[i] = 0
-				}
-
+		for j := 0; j < 300; j++ {
+			a = GenAleatorio(218)
+			b = GenAleatorio(218)
+			d = GenAleatorio(218)
+			e = GenAleatorio(218)
+			f = GenAleatorio(218)
+			g = GenAleatorio(218)
+			h = GenAleatorio(218)
+			p = GenAleatorio(218)
+			/**/ if a == 9 {
+				a = GenAleatorio(5)
 			}
-		}
+			if c == 9 {
+				c = GenAleatorio(5)
+			}
+			if b == 9 {
+				b = GenAleatorio(5)
+			}
 
+			if d == 9 {
+				d = GenAleatorio(5)
+			}
+
+			if e == 9 {
+				e = GenAleatorio(5)
+			}
+			if f == 9 {
+				f = GenAleatorio(5)
+			}
+			if g == 9 {
+				g = GenAleatorio(5)
+			}
+			if h == 9 {
+				h = GenAleatorio(5)
+			}
+
+			if p == 9 {
+				p = GenAleatorio(5)
+			} /**/
+
+			fmt.Printf("%c%c\t%c%c\t%c\t%c%c\t%c%c", a, b, c, d, e, f, g, h, p)
+			fmt.Printf("%c%c\t%c%c\t%c\t%c%c\t%c%c\n", e, c, p, h, a, f, b, g, d)
+
+			//fmt.Printf("%c%c%c%c%c%c%c%c%c\n", a, b, c, d, e, f, g, h, p)
+
+			//time.Sleep(1000 * time.Nanosecond)
+
+			//fmt.Println()
+		}
 	}
 
 }
